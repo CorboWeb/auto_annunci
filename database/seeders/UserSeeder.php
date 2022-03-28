@@ -22,13 +22,18 @@ class UserSeeder extends Seeder
             'name' => 'ornellone',
             'email' => 'ornello@gcoc.com',
             'password' => Hash::make('123456789'),
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
+            'role_id' => 1,
         ]);
+
+        
         DB::table('users')->insert([
             'name' => 'riccardo',
             'email' => 'riccardo@gcoc.com',
             'password' => Hash::make('123456789'),
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
+            'role_id' => 2,
+
         ]);
     }
 }

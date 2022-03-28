@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('dettagli', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger('id');
             $table->integer('proprietari');
             $table->string('cambio');
             $table->string('vernice');
@@ -24,6 +24,8 @@ return new class extends Migration
             $table->text('consumi');
             $table->text('emissioni');
             $table->text('equipaggiamento');
+            $table->primary('id');
+
         });
     }
 
