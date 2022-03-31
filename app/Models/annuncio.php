@@ -22,7 +22,13 @@ class annuncio extends Model
     }
 
     
+    
     public function dettaglio() {
         return $this->hasOne(dettaglio::class);
+    }
+
+    
+    public function immagini() {
+        return $this->hasMany(Immagine::class);
     }
 }
