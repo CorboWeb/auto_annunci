@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => 'Sezione <b>Admin</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -247,10 +247,15 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
+            'text'        => 'users',
+            'url'         => 'admin/users',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'annunci',
+            'url'         => 'admin/annunci',
+            'icon'        => 'far fa-fw fa-file',
             'label_color' => 'success',
         ],
         ['header' => 'account_settings'],

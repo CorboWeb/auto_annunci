@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AnnunciController;
+use App\Http\Controllers\AnnuncioAdminController;
+use App\Http\Controllers\UserAdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +18,38 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+
+
+
+
+
+
+
+Route::get('/annunci', [AnnunciController::class, 'index'])->name('annunci.index');
+Route::get('/annuncio/create', [AnnunciController::class, 'create'])->name('annunci.create')->middleware('auth');
+Route::post('annunci/store', [AnnunciController::class, 'store'])->name('annunci.store');
+
+Route::get('/annunci/{id}', [AnnunciController::class, 'show'])->name('annunci.show');
+Route::get('/annuncio/{id}/edit', [AnnunciController::class, 'edit'])->name('annunci.edit');
+Route::post('annuncio/{id}/update', [AnnunciController::class, 'update'])->name('annunci.update');
+Route::get('/annuncio/{id}/destroy', [AnnunciController::class, 'destroy'])->name('annunci.destroy')->middleware('auth');
+
+
+
+Route::get('/admin/users', [UserAdminController::class, 'index'])->name('admin.users.index')->middleware('admin');
+
+Route::get('/admin/annunci', [AnnuncioAdminController::class, 'index'])->name('admin.annunci.index')->middleware('admin');
+
+
+
+
 
 
 Route::get('/admin', function () {

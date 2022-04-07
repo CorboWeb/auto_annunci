@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class recensione extends Model
 {
     use HasFactory;
+    protected $table='recensioni';
 
 
 

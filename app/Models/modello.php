@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class modello extends Model
 {
     use HasFactory;
+    protected $table='modelli';
 
 
     public function marca() {

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class dettaglio extends Model
 {
     use HasFactory;
+    protected $table='dettagli';
 
     
     public function annuncio() {

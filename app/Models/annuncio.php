@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class annuncio extends Model
 {
     use HasFactory;
+    protected $table='annunci';
 
     public function user() {
         return $this->belongsTo(User::class);
@@ -24,7 +25,7 @@ class annuncio extends Model
     
     
     public function dettaglio() {
-        return $this->hasOne(dettaglio::class);
+        return $this->hasOne(Dettaglio::class);
     }
 
     
