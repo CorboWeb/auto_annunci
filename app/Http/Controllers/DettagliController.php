@@ -38,7 +38,7 @@ class DettagliController extends Controller
         ]);
 
         $dettaglio = new Dettaglio;
-        $dettaglio-> annunci_id = $id;
+        $dettaglio->annuncio_id = $id;
         $dettaglio->proprietari = $request->proprietari;
         $dettaglio->cambio = $request->cambio;
         $dettaglio->vernice = $request->vernice;

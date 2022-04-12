@@ -13,7 +13,8 @@
   </div>
   @auth
   <h2>Ciao {{ Auth::user()->name }}</h2>
+
   @endauth
 
-  
+
 @endsection
