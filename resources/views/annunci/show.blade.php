@@ -19,7 +19,18 @@
       <p class="card-text"><b class="text-capitalize">indirizzo: </b>{{$annuncio->indirizzo }}</p>
       <p class="card-text"><b class="text-capitalize">colore: </b>{{$annuncio->colore }}</p>
       <p class="card-text"><b>Descrizione:</b>{!! $annuncio->descrizione !!}</p>
-      <p class="card-text"><b>Inserito Da:</b>{{$annuncio->user->nome}}</p>
+      <p class="card-text"><b class="text-capitalize">Proprietari: </b>{{$annuncio->dettaglio->proprietari }}</p>
+      <p class="card-text"><b class="text-capitalize">Cambio: </b>{{$annuncio->dettaglio->cambio }}</p>
+      <p class="card-text"><b class="text-capitalize">Vernice: </b>{{$annuncio->dettaglio->vernice }}</p>
+      <p class="card-text"><b class="text-capitalize">Rivestimenti: </b>{{$annuncio->dettaglio->rivestimenti }}</p>
+      <p class="card-text"><b class="text-capitalize">Posti: </b>{{$annuncio->dettaglio->posti }}</p>
+      <p class="card-text"><b class="text-capitalize">Porte: </b>{{$annuncio->dettaglio->porte }}</p>
+      <p class="card-text"><b class="text-capitalize">Consumi: </b>{{$annuncio->dettaglio->consumi }}</p>
+      <p class="card-text"><b class="text-capitalize">Emissioni: </b>{{$annuncio->dettaglio->emissioni }}</p>
+      <p class="card-text"><b class="text-capitalize">Equipaggiamento: </b>{!! $annuncio->dettaglio->equipaggiamento !!}</p>
+
+      
+      <p class="card-text"><b>Inserito Da:</b>{{$annuncio->user->name}}</p>
 
       <form method="post"  action="{{ route('recensioni.store', $annuncio->user_id )}}">
       

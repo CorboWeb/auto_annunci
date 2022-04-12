@@ -81,7 +81,10 @@ class AnnunciController extends Controller
         /*$annuncio->immagine = $nome[2];*/
         $annuncio->save();
 
-        return redirect()->route('annunci.index')->with('msg', 'Articolo correttamente inserito!');
+        return view('dettagli.create', ['id' => $annuncio->id])->with('msg', 'Articolo correttamente inserito!');
+        
+        
+        
     }
 
     /**

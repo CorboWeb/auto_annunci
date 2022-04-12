@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AnnunciController;
 use App\Http\Controllers\RecensioniController;
+use App\Http\Controllers\DettagliController;
+use App\Http\Controllers\ImmaginiController;
 
 use App\Http\Controllers\AnnuncioAdminController;
 use App\Http\Controllers\UserAdminController;
@@ -34,8 +36,17 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/annunci', [AnnunciController::class, 'index'])->name('annunci.index')->middleware('auth');
+
 Route::get('/annuncio/create', [AnnunciController::class, 'create'])->name('annunci.create')->middleware('auth');
+Route::get('/dettagli/create', [DettagliController::class, 'create'])->name('dettagli.create')->middleware('auth');
+Route::get('/immagini/create', [ImmaginiController::class, 'create'])->name('immagini.create')->middleware('auth');
+
+
+Route::post('dettagli/store/{id}', [DettagliController::class, 'store'])->name('dettagli.store');
 Route::post('annunci/store', [AnnunciController::class, 'store'])->name('annunci.store');
+Route::post('immagini/store/{id}', [ImmaginiController::class, 'store'])->name('immagini.store');
+
+
 
 Route::get('/annunci/{id}', [AnnunciController::class, 'show'])->name('annunci.show');
 Route::get('/annuncio/{id}/edit', [AnnunciController::class, 'edit'])->name('annunci.edit');
