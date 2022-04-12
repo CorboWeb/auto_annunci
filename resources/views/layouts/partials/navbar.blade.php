@@ -14,8 +14,36 @@
             <a class="nav-link active" aria-current="page" href="/annuncio/create">Crea Annuncio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link active" aria-current="page" href="/annunci">I mie Annunci</a>
           </li>
+          @guest
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ route('register')}}">Registrati</a>
+          </li>
+          @endguest
+          @auth
+
+
+          @if (Auth::user()->roles=="Amministratore")
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/admin">Pannello Admin</a>
+          </li>
+          @endif
+
+          <li class="nav-item">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <a class="nav-link" href="{{ route('logout') }}"  onclick="event.preventDefault();this.closest('form').submit();">
+                Logout
+                </a>
+            </form>
+          </li>
+
+
+          @endauth
         </ul>
 
   </nav>

@@ -1,11 +1,12 @@
 <?php
 
 use App\Http\Controllers\AnnunciController;
+use App\Http\Controllers\RecensioniController;
+
 use App\Http\Controllers\AnnuncioAdminController;
 use App\Http\Controllers\UserAdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +33,7 @@ Route::get('/dashboard', function () {
 
 
 
-Route::get('/annunci', [AnnunciController::class, 'index'])->name('annunci.index');
+Route::get('/annunci', [AnnunciController::class, 'index'])->name('annunci.index')->middleware('auth');
 Route::get('/annuncio/create', [AnnunciController::class, 'create'])->name('annunci.create')->middleware('auth');
 Route::post('annunci/store', [AnnunciController::class, 'store'])->name('annunci.store');
 
@@ -47,6 +48,7 @@ Route::get('/admin/users', [UserAdminController::class, 'index'])->name('admin.u
 
 Route::get('/admin/annunci', [AnnuncioAdminController::class, 'index'])->name('admin.annunci.index')->middleware('admin');
 
+Route::post('recensioni/{id}', [RecensioniController::class, 'store'])->name('recensioni.store');
 
 
 

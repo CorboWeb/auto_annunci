@@ -9,6 +9,7 @@ class dettaglio extends Model
 {
     use HasFactory;
     protected $table='dettagli';
+    public $timestamps = false;
 
     
     public function annuncio() {

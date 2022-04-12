@@ -19,7 +19,22 @@
       <p class="card-text"><b class="text-capitalize">indirizzo: </b>{{$annuncio->indirizzo }}</p>
       <p class="card-text"><b class="text-capitalize">colore: </b>{{$annuncio->colore }}</p>
       <p class="card-text"><b>Descrizione:</b>{!! $annuncio->descrizione !!}</p>
-      <a href="/annunci" class="btn btn-primary">Visuallizza altri annunci</a>
+      <p class="card-text"><b>Inserito Da:</b>{{$annuncio->user->nome}}</p>
+
+      <form method="post"  action="{{ route('recensioni.store', $annuncio->user_id )}}">
+      
+        @csrf
+        <div class="mt-2 col-12 p-2 px-5">
+            <label for="valutazione" class="form-label">Inserisci le tua recensione sull'utente</label>
+            <input type="number" class="form-control col-10" min="0" max="5" name="valutazione" id="valutazione" required>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">Invia </button>
+        </div>
+      
+      
+      </form>
+      <a href="/annunci" class="btn btn-primary mt-2">Visuallizza altri annunci</a>
 
 
     </div>

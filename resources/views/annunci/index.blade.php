@@ -20,7 +20,11 @@
 </head>
 
 <body>
-
+    @if (Session::has('msg'))
+    <div class="alert alert-success mt-5" role="alert">
+        {{Session::get('msg')}}
+    </div>
+@endif
 
     <div class="container">
         <h1 class="py-3">Lista Annunci</h1>

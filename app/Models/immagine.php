@@ -9,6 +9,7 @@ class immagine extends Model
 {
     use HasFactory;
     protected $table='immagini';
+    public $timestamps = false;
 
     public function annuncio() {
         return $this->belongsTo(Annuncio::class);
