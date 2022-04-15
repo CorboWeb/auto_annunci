@@ -7,6 +7,7 @@ use App\Http\Controllers\ImmaginiController;
 
 use App\Http\Controllers\AnnuncioAdminController;
 use App\Http\Controllers\UserAdminController;
+use App\Models\annuncio;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
@@ -21,7 +22,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $annunci= Annuncio::orderBy('created_at','desc')->paginate(4);
+    return view('index', ['annunci' => $annunci]);
 });
 
 Route::get('/dashboard', function () {
@@ -38,8 +40,8 @@ Route::get('/dashboard', function () {
 Route::get('/annunci', [AnnunciController::class, 'index'])->name('annunci.index')->middleware('auth');
 
 Route::get('/annuncio/create', [AnnunciController::class, 'create'])->name('annunci.create')->middleware('auth');
-Route::get('/dettagli/create', [DettagliController::class, 'create'])->name('dettagli.create')->middleware('auth');
-Route::get('/immagini/create', [ImmaginiController::class, 'create'])->name('immagini.create')->middleware('auth');
+Route::get('/annuncio/{id}/dettagli/create', [DettagliController::class, 'create'])->name('dettagli.create')->middleware('auth');
+Route::get('/annuncio/{id}/immagini/create', [ImmaginiController::class, 'create'])->name('immagini.create')->middleware('auth');
 
 
 Route::post('dettagli/store/{id}', [DettagliController::class, 'store'])->name('dettagli.store');
@@ -52,6 +54,8 @@ Route::get('/annunci/{id}', [AnnunciController::class, 'show'])->name('annunci.s
 Route::get('/annuncio/{id}/edit', [AnnunciController::class, 'edit'])->name('annunci.edit');
 Route::post('annuncio/{id}/update', [AnnunciController::class, 'update'])->name('annunci.update');
 Route::get('/annuncio/{id}/destroy', [AnnunciController::class, 'destroy'])->name('annunci.destroy')->middleware('auth');
+
+Route::get('/annuncio/immagini/{immagine}/destroy/', [ImmaginiController::class, 'destroy'])->name('immagini.destroy')->middleware('auth');
 
 
 

@@ -38,6 +38,12 @@
             }
         }
 
+        .annuncio_titolo {
+            text-decoration: none;
+            font-weight: 700;
+            
+        }
+
     </style>
 </head>
 

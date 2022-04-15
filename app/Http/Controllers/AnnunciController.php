@@ -81,7 +81,7 @@ class AnnunciController extends Controller
         /*$annuncio->immagine = $nome[2];*/
         $annuncio->save();
 
-        return view('dettagli.create', ['id' => $annuncio->id])->with('msg', 'Articolo correttamente inserito!');
+        return redirect()->route('dettagli.create', $annuncio->id)->with('msg', 'Articolo correttamente inserito!');
         
         
         
@@ -159,9 +159,14 @@ class AnnunciController extends Controller
 
         $annuncio = Annuncio::find($id);
         if(Auth::id()==$annuncio->user->id){
-        /*if (Storage::exists('public/immagini/' . $annuncio->immagine)) {
-            Storage::delete('public/immagini/' . $annuncio->immagine);
-        }*/
+
+        
+            if ($annuncio->immagini!=null) {
+            foreach ($annuncio->immagini as $immagine) {
+                Storage::delete('public/immagini/' . $immagine->immagine);
+
+        }
+        }
 
         $annuncio->delete();
 

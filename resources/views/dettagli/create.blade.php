@@ -69,7 +69,8 @@
     </div>
 
     <div class="col-11 m-3">
-        <input type="submit" name="Invia" class="btn btn-primary"/>
+        <input type="submit" name="Invia" class="btn btn-primary mr-2"/><a href="{{ route('immagini.create', $id) }}" class="btn btn-primary">Salta Passaggio </a>
+
     </div>
 
 </div>

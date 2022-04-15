@@ -27,7 +27,7 @@
           @auth
 
 
-          @if (Auth::user()->roles=="Amministratore")
+          @if (Auth::user()->role->name =="Amministratore")
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/admin">Pannello Admin</a>
           </li>
@@ -45,5 +45,4 @@
 
           @endauth
         </ul>
-
-  </nav>
+        </nav>

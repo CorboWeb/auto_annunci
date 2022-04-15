@@ -52,7 +52,7 @@ class DettagliController extends Controller
 
         $dettaglio->save();
 
-        return view('immagini.create', ['id' => $dettaglio->id])->with('msg', 'Articolo correttamente inserito!');
+        return redirect()->route('immagini.create', $id)->with('msg', 'Articolo correttamente inserito!');
     }
 
 }

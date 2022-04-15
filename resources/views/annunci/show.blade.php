@@ -19,6 +19,7 @@
       <p class="card-text"><b class="text-capitalize">indirizzo: </b>{{$annuncio->indirizzo }}</p>
       <p class="card-text"><b class="text-capitalize">colore: </b>{{$annuncio->colore }}</p>
       <p class="card-text"><b>Descrizione:</b>{!! $annuncio->descrizione !!}</p>
+      @if ( $annuncio->dettaglio)
       <p class="card-text"><b class="text-capitalize">Proprietari: </b>{{$annuncio->dettaglio->proprietari }}</p>
       <p class="card-text"><b class="text-capitalize">Cambio: </b>{{$annuncio->dettaglio->cambio }}</p>
       <p class="card-text"><b class="text-capitalize">Vernice: </b>{{$annuncio->dettaglio->vernice }}</p>
@@ -29,6 +30,19 @@
       <p class="card-text"><b class="text-capitalize">Emissioni: </b>{{$annuncio->dettaglio->emissioni }}</p>
       <p class="card-text"><b class="text-capitalize">Equipaggiamento: </b>{!! $annuncio->dettaglio->equipaggiamento !!}</p>
 
+      @endif
+      
+      
+      @if (count($annuncio->immagini)>0)
+      <div class="container">
+          <h1 class="w-100 text-center mb-3">Immagini</h1>
+          <ul class="d-flex justify-content-evenly flex-wrap">
+              @foreach ($annuncio->immagini as $immagine)
+                  <li class="list-group-item text-center mb-3"><img class="mb-3" style="max-width:500px;" src="/storage/immagini/{{$immagine->immagine}}"></li>
+              @endforeach
+          </ul>
+      </div>
+  @endif
       
       <p class="card-text"><b>Inserito Da:</b>{{$annuncio->user->name}}</p>
 
